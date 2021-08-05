@@ -1,0 +1,66 @@
+{% extends 'multiplex/customerbase.html' %}
+{% load static %}
+{% block content %}
+
+<style media="screen">
+	.example1 {
+	 height: 50px;
+	 overflow: hidden;
+	 position: relative;
+	}
+	.example1 h3 {
+	 font-size: 3em;
+	 color: red;
+	 position: absolute;
+	 width: 100%;
+	 height: 100%;
+	 margin: 0;
+	 line-height: 40px;
+	 text-align: center;
+	 /* Starting position */
+	 -moz-transform:translateX(100%);
+	 -webkit-transform:translateX(100%);
+	 transform:translateX(100%);
+	 /* Apply animation to this element */
+	 -moz-animation: example1 10s linear infinite;
+	 -webkit-animation: example1 10s linear infinite;
+	 animation: example1 10s linear infinite;
+	}
+	/* Move it (define the animation) */
+	@-moz-keyframes example1 {
+	 0%   { -moz-transform: translateX(100%); }
+	 100% { -moz-transform: translateX(-100%); }
+	}
+	@-webkit-keyframes example1 {
+	 0%   { -webkit-transform: translateX(100%); }
+	 100% { -webkit-transform: translateX(-100%); }
+	}
+	@keyframes example1 {
+	 0%   {
+	 -moz-transform: translateX(100%); /* Firefox bug fix */
+	 -webkit-transform: translateX(100%); /* Firefox bug fix */
+	 transform: translateX(100%);
+	 }
+	 100% {
+	 -moz-transform: translateX(-100%); /* Firefox bug fix */
+	 -webkit-transform: translateX(-100%); /* Firefox bug fix */
+	 transform: translateX(-100%);
+	 }
+	}
+</style>
+	<!-- main content -->
+	<br>
+	<div class="wrapper">
+		<div class="example1">
+	  <h3><span style='font-size:40px;'>&#11088;</span> Movies In Theatre <span style='font-size:40px;'>&#11088;</span> BOOK NOW <span style='font-size:40px;'>&#11088;</span></h3>
+	  </div>
+		<br><br>
+{% include "multiplex/movie_card.html" %}
+
+<br><br><br><br><br><br><br><br><br>
+
+
+	</div>
+
+	<!-- end main content -->
+{% endblock content %}

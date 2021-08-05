@@ -1,0 +1,53 @@
+{% extends 'multiplex/theatrebase.html' %}
+{% load static %}
+{% block content %}
+
+	<!-- main content -->
+	<div class="wrapper">
+
+<!-- ****** cards start ********** -->
+		<div class="row">
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter bg-primary">
+					<p>
+						<i class="fas fa-film"></i>
+					</p>
+					<h3>{{totalmovie}}</h3>
+					<p>Your Total Movie</p>
+				</div>
+			</div>
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter bg-warning">
+					<p>
+						<i class="fas fa-video"></i>
+					</p>
+					<h3>{{totalreleasedmovie}}</h3>
+					<p>Total Released Movies</p>
+				</div>
+			</div>
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter bg-success">
+					<p>
+						<i class="fas fa-photo-video"></i>
+					</p>
+					<h3>{{totalrequest}}</h3>
+					<p>Request From Distributor</p>
+				</div>
+			</div>
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter bg-danger">
+					<p>
+						<i class="fas fa-rupee-sign"></i>
+					</p>
+					<h3>{{totalcollection}}</h3>
+					<p>Total Collection</p>
+				</div>
+			</div>
+		</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+<!-- ****** cards end ********** -->
+
+	</div>
+	<!-- end main content -->
+{% endblock content %}

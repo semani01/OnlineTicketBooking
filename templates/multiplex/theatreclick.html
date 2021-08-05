@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <style media="screen">
+    .jumbotron {
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+    .jumbotron h1 {
+      text-align: center;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  {% include "multiplex/navbar.html" %}
+  <br><br>
+  <div class="jumbotron" style="margin-bottom:0px;">
+    <h1 class="display-4">Hello, Theatre Owner</h1><br><br>
+    <p class="lead">Buy Movies From Distributor</p>
+    <p class="lead">Show Movies To Audience</p>
+    <p class="lead">We Have Large Numbers Of Distributors and Customers</p>
+    <hr class="my-4">
+    <p>You can access various features after Login.</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="theatresignup" role="button">Create Your Account</a>
+      <a class="btn btn-primary btn-lg" href="theatrelogin" role="button">Login</a>
+    </p>
+  </div>
+  {% include "multiplex/footer.html" %}
+</body>
+
+</html>

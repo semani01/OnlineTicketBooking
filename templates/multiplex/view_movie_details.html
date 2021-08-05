@@ -1,0 +1,34 @@
+{% extends 'multiplex/customerbase.html' %}
+{% block content %}
+
+<head>
+  <style media="screen">
+    .center {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+  </style>
+</head>
+	<!-- main content -->
+	<div class="wrapper">
+
+    <h1 style="text-align:center;color:blue;background-color:red;padding:10px;">Movie Details</h1><br>
+
+
+<div class="center">
+  <iframe width="650" height="360" frameborder="0" allow=" picture-in-picture"  src="{{movie.video}}">
+  </iframe><br><br>
+  <h2 style="text-align:center;color:blue;">Name : {{movie}}</h2>
+  <h3 style="text-align:center;color:red;">Description : {{movie.description}}</h3>
+  <h3 style="text-align:center;color:red;">Actor Name : {{movie.actor}}</h3>
+  <h3 style="text-align:center;color:red;">Director Name : {{movie.director}}</h3>
+  <h3 style="text-align:center;color:red;">Release Date : {{movie.release_date}}</h3>
+  <h3 style="text-align:center;color:red;">Out Date : {{movie.out_date}}</h3>
+
+</div>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	</div>
+	<!-- end main content -->
+{% endblock content %}

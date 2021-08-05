@@ -1,0 +1,53 @@
+{% extends 'multiplex/customerbase.html' %}
+{% load static %}
+{% block content %}
+
+	<!-- main content -->
+	<div class="wrapper">
+
+<!-- ****** cards start ********** -->
+		<div class="row">
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter bg-primary">
+					<p>
+						<i class="fas fa-film"></i>
+					</p>
+					<h3>{{movieName}}</h3>
+					<p>Movie Name</p>
+				</div>
+			</div>
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter bg-warning">
+					<p>
+						<i class="fas fa-calendar-week"></i>
+					</p>
+					<h3>{{movieDate}}</h3>
+					<p>Movie Date</p>
+				</div>
+			</div>
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter bg-success">
+					<p>
+						<i class="fas fa-couch"></i>
+					</p>
+					<h3>{{seatNumber}}</h3>
+					<p>Seat Number</p>
+				</div>
+			</div>
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter bg-danger">
+					<p>
+						<i class="fas fa-rupee-sign"></i>
+					</p>
+					<h3>{{cost}}</h3>
+					<p>Total Cost</p>
+				</div>
+			</div>
+		</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+<!-- ****** cards end ********** -->
+
+	</div>
+	<!-- end main content -->
+{% endblock content %}

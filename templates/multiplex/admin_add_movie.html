@@ -1,0 +1,78 @@
+{% extends 'multiplex/adminbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<head>
+  <style media="screen">
+    input[type=text], select,input[type=number] ,input[type=file] ,textarea,input[type=date]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+
+
+  </style>
+
+
+</head>
+
+<br><br><br><br><br>
+<h3 style="text-align:center;">ADD NEW MOVIE</h3>
+<div>
+  <form method="post" enctype="multipart/form-data" style="margin-left:200px;margin-right:200px;">
+      {% csrf_token %}
+
+    <label for="name">Movie Name</label>
+  <input type="text" name="name" value="" required>
+
+  <label for="description">Description</label>
+<textarea name="description" rows="3" required cols="80"></textarea>
+
+<label for="actorname">Actor Name</label>
+<input type="text" name="actorname" value="" required>
+
+<label for="directorname">Director Name</label>
+<input type="text" name="directorname" value="" required>
+
+  <label for="release_date">Release Date</label>
+    <input type="date" name="release_date" id="release_date" value="" required>
+
+    <label for="out_date">Out Date</label>
+    <input type="date" name="out_date" id="out_date" value="" required>
+
+    <label for="poster">Poster</label>
+    <input type="file" name="poster" id="poster" required value="">
+
+    <label for="video">Youtube Video Link</label>
+    <input type="text" name="video" placeholder="https://www.youtube.com/embed/tgbNymZ7vqY" required>
+
+        <label for="mechanic">Theatre List</label>
+        {% render_field theatreForm.theatre class="form-control"  %}<br>
+
+
+    <input type="submit" value="Add">
+  </form>
+</div>
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock content %}

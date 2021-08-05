@@ -1,0 +1,891 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Movie Seat Selection Flat Responsive Widget Template :: w3layouts</title>
+    <!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Movie Seat Selection a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta-Tags -->
+    <!-- Index-Page-CSS -->
+    <link rel="stylesheet" href="{% static "css/style.css" %}" type="text/css" media="all">
+    <!-- //Custom-Stylesheet-Links -->
+    <!--fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+    <!-- //fonts -->
+    <style media="screen">
+
+
+
+    </style>
+</head>
+
+<body onload="onLoaderFunc()">
+    <h1>Movie Seat Selection</h1>
+    <div class="container">
+
+        <div class="w3ls-reg">
+            <!-- input fields -->
+            <div class="inputForm">
+                <h2>fill the required details below and select your seats</h2>
+                <h3 style="text-align:center;color:#a5b5ae;">one ticket cost : 100</h3><br>
+                <div class="mr_agilemain">
+                    <div class="agileits-left">
+                        <label> Name
+                            <span>*</span>
+                        </label>
+                        <input type="text" id="Username" value="{{request.user.first_name}}" required>
+                    </div>
+                    <div class="agileits-right">
+                        <label> Number of Seats
+                            <span>*</span>
+                        </label>
+                        <input type="number" id="Numseats" required min="1">
+                    </div>
+                </div>
+                <button onclick="takeData()">Start Selecting</button>
+            </div>
+            <!-- //input fields -->
+            <!-- seat availabilty list -->
+            <ul class="seat_w3ls">
+                <li class="smallBox greenBox">Selected Seat</li>
+
+                <li class="smallBox redBox">Reserved Seat Cannot Be selected, Its Disabled</li>
+
+                <li class="smallBox emptyBox">Empty Seat</li>
+            </ul>
+            <!-- seat availabilty list -->
+            <!-- seat layout -->
+            <div class="seatStructure txt-center" style="overflow-x:auto;">
+                <table id="seatsBlock">
+                    <p id="notification"></p>
+                    <tr>
+                        <td></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td></td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
+                        <td>11</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>A</td>
+                        <td>
+                            <input type="checkbox" id="A1" class="seats" value="A1">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="A2" class="seats" value="A2">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="A3" class="seats" value="A3">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="A4" class="seats" value="A4">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="A5" class="seats" value="A5">
+                        </td>
+                        <td class="seatGap"></td>
+                        <td>
+                            <input type="checkbox" id="A6" class="seats" value="A6">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="A7" class="seats" value="A7">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="A8" class="seats" value="A8">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="A9" class="seats" value="A9">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="A10" class="seats" value="A10">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="A11" class="seats" value="A11">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="A12" class="seats" value="A12">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>B</td>
+                        <td>
+                            <input type="checkbox" id="B1" class="seats" value="B1">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="B2" class="seats" value="B2">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="B3" class="seats" value="B3">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="B4" class="seats" value="B4">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="B5" class="seats" value="B5">
+                        </td>
+                        <td></td>
+                        <td>
+                            <input type="checkbox" id="B6" class="seats" value="B6">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="B7" class="seats" value="B7">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="B8" class="seats" value="B8">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="B9" class="seats" value="B9">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="B10" class="seats" value="B10">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="B11" class="seats" value="B11">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="B12" class="seats" value="B12">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>C</td>
+                        <td>
+                            <input type="checkbox" id="C1" class="seats" value="C1">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="C2" class="seats" value="C2">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="C3" class="seats" value="C3">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="C4" class="seats" value="C4">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="C5" class="seats" value="C5">
+                        </td>
+                        <td></td>
+                        <td>
+                            <input type="checkbox" id="C6" class="seats" value="C6">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="C7" class="seats" value="C7">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="C8" class="seats" value="C8">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="C9" class="seats" value="C9">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="C10" class="seats" value="C10">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="C11"  class="seats" value="C11">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="C12" class="seats" value="C12">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>D</td>
+                        <td>
+                            <input type="checkbox" id="D1" class="seats" value="D1">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="D2" class="seats" value="D2">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="D3" class="seats" value="D3">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="D4" class="seats" value="D4">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="D5" class="seats" value="D5">
+                        </td>
+                        <td></td>
+                        <td>
+                            <input type="checkbox" id="D6" class="seats" value="D6">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="D7" class="seats" value="D7">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="D8" class="seats" value="D8">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="D9" class="seats" value="D9">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="D10" class="seats" value="D10">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="D11" class="seats" value="D11">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="D12" class="seats" value="D12">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>E</td>
+                        <td>
+                            <input type="checkbox" id="E1" class="seats" value="E1">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="E2" class="seats" value="E2">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="E3" class="seats" value="E3">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="E4" class="seats" value="E4">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="E5" class="seats" value="E5">
+                        </td>
+                        <td></td>
+                        <td>
+                            <input type="checkbox" id="E6" class="seats" value="E6">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="E7" class="seats" value="E7">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="E8" class="seats" value="E8">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="E9" class="seats" value="E9">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="E10" class="seats" value="E10">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="E11" class="seats" value="E11">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="E12" class="seats" value="E12">
+                        </td>
+                    </tr>
+
+                    <tr class="seatVGap"></tr>
+
+                    <tr>
+                        <td>F</td>
+                        <td>
+                            <input type="checkbox" id="F1" class="seats" value="F1">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="F2" class="seats" value="F2">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="F3" class="seats" value="F3">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="F4" class="seats" value="F4">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="F5" class="seats" value="F5">
+                        </td>
+                        <td></td>
+                        <td>
+                            <input type="checkbox" id="F6" class="seats" value="F6">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="F7" class="seats" value="F7">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="F8" class="seats" value="F8">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="F9" class="seats" value="F9">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="F10" class="seats" value="F10">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="F11" class="seats" value="F11">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="F12" class="seats" value="F12">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>G</td>
+                        <td>
+                            <input type="checkbox" id="G1" class="seats" value="G1">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="G2" class="seats" value="G2">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="G3" class="seats" value="G3">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="G4" class="seats" value="G4">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="G5" class="seats" value="G5">
+                        </td>
+                        <td></td>
+                        <td>
+                            <input type="checkbox" id="G6" class="seats" value="G6">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="G7" class="seats" value="G7">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="G8" class="seats" value="G8">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="G9" class="seats" value="G9">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="G10" class="seats" value="G10">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="G11" class="seats" value="G11">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="G12" class="seats" value="G12">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>H</td>
+                        <td>
+                            <input type="checkbox" id="H1" class="seats" value="H1">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="H2" class="seats" value="H2">
+                        </td>
+                        <td>
+                            <input type="checkbox"id="H3"  class="seats" value="H3">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="H4" class="seats" value="H4">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="H5" class="seats" value="H5">
+                        </td>
+                        <td></td>
+                        <td>
+                            <input type="checkbox" id="H6" class="seats" value="H6">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="H7" class="seats" value="H7">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="H8" class="seats" value="H8">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="H9" class="seats" value="H9">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="H10" class="seats" value="H10">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="H11" class="seats" value="H11">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="H12" class="seats" value="H12">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>I</td>
+                        <td>
+                            <input type="checkbox" id="I1" class="seats" value="I1">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="I2" class="seats" value="I2">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="I3" class="seats" value="I3">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="I4" class="seats" value="I4">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="I5" class="seats" value="I5">
+                        </td>
+                        <td></td>
+                        <td>
+                            <input type="checkbox" id="I6" class="seats" value="I6">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="I7" class="seats" value="I7">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="I8" class="seats" value="I8">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="I9" class="seats" value="I9">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="I10" class="seats" value="I10">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="I11" class="seats" value="I11">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="I12" class="seats" value="I12">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>J</td>
+                        <td>
+                            <input type="checkbox" id="J1" class="seats" value="J1">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="J2" class="seats" value="J2">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="J3" class="seats" value="J3">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="J4" class="seats" value="J4">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="J5" class="seats" value="J5">
+                        </td>
+                        <td></td>
+                        <td>
+                            <input type="checkbox" id="J6" class="seats" value="J6">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="J7" class="seats" value="J7">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="J8" class="seats" value="J8">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="J9" class="seats" value="J9">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="J10" class="seats" value="J10">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="J11" class="seats" value="J11">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="J12" class="seats" value="J12">
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="screen">
+                    <h2 class="wthree">Screen this way</h2>
+                </div>
+                <button onclick="updateTextArea()">Confirm Selection</button>
+            </div>
+            <!-- //seat layout -->
+            <!-- details after booking displayed here -->
+            <div class="displayerBoxes txt-center" style="overflow-x:auto;">
+                <table class="Displaytable w3ls-table" width="100%">
+                    <tr>
+                        <th>Name</th>
+                        <th>Number of Seats</th>
+                        <th>Seats</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea id="nameDisplay"></textarea>
+                        </td>
+                        <td>
+                            <textarea id="NumberDisplay"></textarea>
+                        </td>
+                        <td>
+                            <textarea id="seatsDisplay"></textarea>
+                        </td>
+                    </tr>
+                </table><br><br>
+
+            </div>
+            <!-- //details after booking displayed here -->
+
+        </div>
+
+    </div><br><br>
+    <a style="background-color: #f44336;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;" href="/proceed-to-pay" id="pay">Proceed To Pay</a><br><br><br><br>
+
+    <!-- js -->
+
+    <script src="  {% static "js/jquery-2.2.3.min.js" %}"></script>
+    <!-- //js -->
+    <!-- script for seat selection -->
+    <script>
+        function onLoaderFunc() {
+            $(".seatStructure *").prop("disabled", true);
+            $(".displayerBoxes *").prop("disabled", true);
+            document.getElementById("pay").style.display= "none";
+        }
+
+        function takeData() {
+            if (($("#Username").val().length == 0) || ($("#Numseats").val().length == 0)) {
+                alert("Please Enter your Name and Number of Seats");
+            } else {
+                $(".inputForm *").prop("disabled", true);
+
+                $(".seatStructure *").prop("disabled", false);
+
+                document.getElementById("A1").disabled = !JSON.parse("{{seats.A1}}".charAt(0).toLowerCase()+ "{{seats.A1}}".slice(1));
+                document.getElementById("A2").disabled = !JSON.parse("{{seats.A2}}".charAt(0).toLowerCase()+ "{{seats.A2}}".slice(1));
+
+                document.getElementById("A3").disabled = !JSON.parse("{{seats.A3}}".charAt(0).toLowerCase()+ "{{seats.A3}}".slice(1));
+                document.getElementById("A4").disabled = !JSON.parse("{{seats.A4}}".charAt(0).toLowerCase()+ "{{seats.A4}}".slice(1));
+                  document.getElementById("A5").disabled = !JSON.parse("{{seats.A5}}".charAt(0).toLowerCase()+ "{{seats.A5}}".slice(1));
+                document.getElementById("A6").disabled = !JSON.parse("{{seats.A6}}".charAt(0).toLowerCase()+ "{{seats.A6}}".slice(1));
+                document.getElementById("A7").disabled = !JSON.parse("{{seats.A7}}".charAt(0).toLowerCase()+ "{{seats.A7}}".slice(1));
+                document.getElementById("A8").disabled = !JSON.parse("{{seats.A8}}".charAt(0).toLowerCase()+ "{{seats.A8}}".slice(1));
+                document.getElementById("A9").disabled = !JSON.parse("{{seats.A9}}".charAt(0).toLowerCase()+ "{{seats.A9}}".slice(1));
+                document.getElementById("A10").disabled = !JSON.parse("{{seats.A10}}".charAt(0).toLowerCase()+ "{{seats.A10}}".slice(1));
+                document.getElementById("A11").disabled = !JSON.parse("{{seats.A11}}".charAt(0).toLowerCase()+ "{{seats.A11}}".slice(1));
+                document.getElementById("A12").disabled = !JSON.parse("{{seats.A12}}".charAt(0).toLowerCase()+ "{{seats.A12}}".slice(1));
+                document.getElementById("B1").disabled = !JSON.parse("{{seats.B1}}".charAt(0).toLowerCase()+ "{{seats.B1}}".slice(1));
+                document.getElementById("B2").disabled = !JSON.parse("{{seats.B2}}".charAt(0).toLowerCase()+ "{{seats.B2}}".slice(1));
+                document.getElementById("B3").disabled = !JSON.parse("{{seats.B3}}".charAt(0).toLowerCase()+ "{{seats.B3}}".slice(1));
+                document.getElementById("B4").disabled = !JSON.parse("{{seats.B4}}".charAt(0).toLowerCase()+ "{{seats.B4}}".slice(1));
+                document.getElementById("B5").disabled = !JSON.parse("{{seats.B5}}".charAt(0).toLowerCase()+ "{{seats.B5}}".slice(1));
+                document.getElementById("B6").disabled = !JSON.parse("{{seats.B6}}".charAt(0).toLowerCase()+ "{{seats.B6}}".slice(1));
+                document.getElementById("B7").disabled = !JSON.parse("{{seats.B7}}".charAt(0).toLowerCase()+ "{{seats.B7}}".slice(1));
+                document.getElementById("B8").disabled = !JSON.parse("{{seats.B8}}".charAt(0).toLowerCase()+ "{{seats.B8}}".slice(1));
+                document.getElementById("B9").disabled =!JSON.parse( "{{seats.B9}}".charAt(0).toLowerCase()+ "{{seats.B9}}".slice(1));
+                document.getElementById("B10").disabled = !JSON.parse("{{seats.B10}}".charAt(0).toLowerCase()+ "{{seats.B10}}".slice(1));
+                document.getElementById("B11").disabled = !JSON.parse("{{seats.B11}}".charAt(0).toLowerCase()+ "{{seats.B11}}".slice(1));
+                document.getElementById("B12").disabled = !JSON.parse("{{seats.B12}}".charAt(0).toLowerCase()+ "{{seats.B12}}".slice(1));
+                document.getElementById("C1").disabled = !JSON.parse("{{seats.C1}}".charAt(0).toLowerCase()+ "{{seats.C1}}".slice(1));
+                document.getElementById("C2").disabled = !JSON.parse("{{seats.C2}}".charAt(0).toLowerCase()+ "{{seats.C2}}".slice(1));
+                document.getElementById("C3").disabled = !JSON.parse("{{seats.C3}}".charAt(0).toLowerCase()+ "{{seats.C3}}".slice(1));
+                document.getElementById("C4").disabled = !JSON.parse("{{seats.C4}}".charAt(0).toLowerCase()+ "{{seats.C4}}".slice(1));
+                document.getElementById("C5").disabled = !JSON.parse("{{seats.C5}}".charAt(0).toLowerCase()+ "{{seats.C5}}".slice(1));
+                document.getElementById("C6").disabled = !JSON.parse("{{seats.C6}}".charAt(0).toLowerCase()+ "{{seats.C6}}".slice(1));
+                document.getElementById("C7").disabled = !JSON.parse("{{seats.C7}}".charAt(0).toLowerCase()+ "{{seats.C7}}".slice(1));
+                document.getElementById("C8").disabled = !JSON.parse("{{seats.C8}}".charAt(0).toLowerCase()+ "{{seats.C8}}".slice(1));
+                document.getElementById("C9").disabled = !JSON.parse("{{seats.C9}}".charAt(0).toLowerCase()+ "{{seats.C9}}".slice(1));
+                document.getElementById("C10").disabled = !JSON.parse("{{seats.C10}}".charAt(0).toLowerCase()+ "{{seats.C10}}".slice(1));
+                document.getElementById("C11").disabled = !JSON.parse("{{seats.C11}}".charAt(0).toLowerCase()+ "{{seats.C11}}".slice(1));
+                document.getElementById("C12").disabled = !JSON.parse("{{seats.C12}}".charAt(0).toLowerCase()+ "{{seats.C12}}".slice(1));
+                document.getElementById("D1").disabled = !JSON.parse("{{seats.D1}}".charAt(0).toLowerCase()+ "{{seats.D1}}".slice(1));
+                document.getElementById("D2").disabled = !JSON.parse("{{seats.D2}}".charAt(0).toLowerCase()+ "{{seats.D2}}".slice(1));
+                document.getElementById("D3").disabled = !JSON.parse("{{seats.D3}}".charAt(0).toLowerCase()+ "{{seats.D3}}".slice(1));
+                document.getElementById("D4").disabled = !JSON.parse("{{seats.D4}}".charAt(0).toLowerCase()+ "{{seats.D4}}".slice(1));
+                document.getElementById("D5").disabled = !JSON.parse("{{seats.D5}}".charAt(0).toLowerCase()+ "{{seats.D5}}".slice(1));
+                document.getElementById("D6").disabled = !JSON.parse("{{seats.D6}}".charAt(0).toLowerCase()+ "{{seats.D6}}".slice(1));
+                document.getElementById("D7").disabled = !JSON.parse("{{seats.D7}}".charAt(0).toLowerCase()+ "{{seats.D7}}".slice(1));
+                document.getElementById("D8").disabled = !JSON.parse("{{seats.D8}}".charAt(0).toLowerCase()+ "{{seats.D8}}".slice(1));
+                document.getElementById("D9").disabled = !JSON.parse("{{seats.D9}}".charAt(0).toLowerCase()+ "{{seats.D9}}".slice(1));
+                document.getElementById("D10").disabled = !JSON.parse("{{seats.D10}}".charAt(0).toLowerCase()+ "{{seats.D10}}".slice(1));
+                document.getElementById("D11").disabled = !JSON.parse("{{seats.D11}}".charAt(0).toLowerCase()+ "{{seats.D11}}".slice(1));
+                document.getElementById("D12").disabled = !JSON.parse("{{seats.D12}}".charAt(0).toLowerCase()+ "{{seats.D12}}".slice(1));
+                document.getElementById("E1").disabled = !JSON.parse("{{seats.E1}}".charAt(0).toLowerCase()+ "{{seats.E1}}".slice(1));
+                document.getElementById("E2").disabled = !JSON.parse("{{seats.E2}}".charAt(0).toLowerCase()+ "{{seats.E2}}".slice(1));
+                document.getElementById("E3").disabled = !JSON.parse("{{seats.E3}}".charAt(0).toLowerCase()+ "{{seats.E3}}".slice(1));
+                document.getElementById("E4").disabled = !JSON.parse("{{seats.E4}}".charAt(0).toLowerCase()+ "{{seats.E4}}".slice(1));
+                document.getElementById("E5").disabled = !JSON.parse("{{seats.E5}}".charAt(0).toLowerCase()+ "{{seats.E5}}".slice(1));
+                document.getElementById("E6").disabled = !JSON.parse("{{seats.E6}}".charAt(0).toLowerCase()+ "{{seats.E6}}".slice(1));
+                document.getElementById("E7").disabled = !JSON.parse("{{seats.E7}}".charAt(0).toLowerCase()+ "{{seats.E7}}".slice(1));
+                document.getElementById("E8").disabled = !JSON.parse("{{seats.E8}}".charAt(0).toLowerCase()+ "{{seats.E8}}".slice(1));
+                document.getElementById("E9").disabled = !JSON.parse("{{seats.E9}}".charAt(0).toLowerCase()+ "{{seats.E9}}".slice(1));
+                document.getElementById("E10").disabled = !JSON.parse("{{seats.E10}}".charAt(0).toLowerCase()+ "{{seats.E10}}".slice(1));
+                document.getElementById("E11").disabled = !JSON.parse("{{seats.E11}}".charAt(0).toLowerCase()+ "{{seats.E11}}".slice(1));
+                document.getElementById("E12").disabled = !JSON.parse("{{seats.E12}}".charAt(0).toLowerCase()+ "{{seats.E12}}".slice(1));
+                document.getElementById("F1").disabled = !JSON.parse("{{seats.F1}}".charAt(0).toLowerCase()+ "{{seats.F1}}".slice(1));
+                document.getElementById("F2").disabled = !JSON.parse("{{seats.F2}}".charAt(0).toLowerCase()+ "{{seats.F2}}".slice(1));
+                document.getElementById("F3").disabled = !JSON.parse("{{seats.F3}}".charAt(0).toLowerCase()+ "{{seats.F3}}".slice(1));
+                document.getElementById("F4").disabled = !JSON.parse("{{seats.F4}}".charAt(0).toLowerCase()+ "{{seats.F4}}".slice(1));
+                document.getElementById("F5").disabled = !JSON.parse("{{seats.F5}}".charAt(0).toLowerCase()+ "{{seats.F5}}".slice(1));
+                document.getElementById("F6").disabled = !JSON.parse("{{seats.F6}}".charAt(0).toLowerCase()+ "{{seats.F6}}".slice(1));
+                document.getElementById("F7").disabled = !JSON.parse("{{seats.F7}}".charAt(0).toLowerCase()+ "{{seats.F7}}".slice(1));
+                document.getElementById("F8").disabled = !JSON.parse("{{seats.F8}}".charAt(0).toLowerCase()+ "{{seats.F8}}".slice(1));
+                document.getElementById("F9").disabled = !JSON.parse("{{seats.F9}}".charAt(0).toLowerCase()+ "{{seats.F9}}".slice(1));
+                document.getElementById("F10").disabled = !JSON.parse("{{seats.F10}}".charAt(0).toLowerCase()+ "{{seats.F10}}".slice(1));
+                document.getElementById("F11").disabled = !JSON.parse("{{seats.F11}}".charAt(0).toLowerCase()+ "{{seats.F11}}".slice(1));
+                document.getElementById("F12").disabled = !JSON.parse("{{seats.F12}}".charAt(0).toLowerCase()+ "{{seats.F12}}".slice(1));
+                document.getElementById("G1").disabled = !JSON.parse("{{seats.G1}}".charAt(0).toLowerCase()+ "{{seats.G1}}".slice(1));
+                document.getElementById("G2").disabled = !JSON.parse("{{seats.G2}}".charAt(0).toLowerCase()+ "{{seats.G2}}".slice(1));
+                document.getElementById("G3").disabled = !JSON.parse("{{seats.G3}}".charAt(0).toLowerCase()+ "{{seats.G3}}".slice(1));
+                document.getElementById("G4").disabled = !JSON.parse("{{seats.G4}}".charAt(0).toLowerCase()+ "{{seats.G4}}".slice(1));
+                document.getElementById("G5").disabled =!JSON.parse("{{seats.G5}}".charAt(0).toLowerCase()+ "{{seats.G5}}".slice(1));
+                document.getElementById("G6").disabled = !JSON.parse("{{seats.G6}}".charAt(0).toLowerCase()+ "{{seats.G6}}".slice(1));
+                document.getElementById("G7").disabled = !JSON.parse("{{seats.G7}}".charAt(0).toLowerCase()+ "{{seats.G7}}".slice(1));
+                document.getElementById("G8").disabled = !JSON.parse("{{seats.G8}}".charAt(0).toLowerCase()+ "{{seats.G8}}".slice(1));
+                document.getElementById("G9").disabled = !JSON.parse("{{seats.G9}}".charAt(0).toLowerCase()+ "{{seats.G9}}".slice(1));
+                document.getElementById("G10").disabled = !JSON.parse("{{seats.G10}}".charAt(0).toLowerCase()+ "{{seats.G10}}".slice(1));
+                document.getElementById("G11").disabled = !JSON.parse("{{seats.G11}}".charAt(0).toLowerCase()+ "{{seats.G11}}".slice(1));
+                document.getElementById("G12").disabled = !JSON.parse("{{seats.G12}}".charAt(0).toLowerCase()+ "{{seats.G12}}".slice(1));
+                document.getElementById("H1").disabled = !JSON.parse("{{seats.H1}}".charAt(0).toLowerCase()+ "{{seats.H1}}".slice(1));
+                document.getElementById("H2").disabled = !JSON.parse("{{seats.H2}}".charAt(0).toLowerCase()+ "{{seats.H2}}".slice(1));
+                document.getElementById("H3").disabled = !JSON.parse("{{seats.H3}}".charAt(0).toLowerCase()+ "{{seats.H3}}".slice(1));
+                document.getElementById("H4").disabled = !JSON.parse("{{seats.H4}}".charAt(0).toLowerCase()+ "{{seats.H4}}".slice(1));
+                document.getElementById("H5").disabled = !JSON.parse("{{seats.H5}}".charAt(0).toLowerCase()+ "{{seats.H5}}".slice(1));
+                document.getElementById("H6").disabled = !JSON.parse("{{seats.H6}}".charAt(0).toLowerCase()+ "{{seats.H6}}".slice(1));
+                document.getElementById("H7").disabled = !JSON.parse("{{seats.H7}}".charAt(0).toLowerCase()+ "{{seats.H7}}".slice(1));
+                document.getElementById("H8").disabled = !JSON.parse("{{seats.H8}}".charAt(0).toLowerCase()+ "{{seats.H8}}".slice(1));
+                document.getElementById("H9").disabled = !JSON.parse("{{seats.H9}}".charAt(0).toLowerCase()+ "{{seats.H9}}".slice(1));
+                document.getElementById("H10").disabled =!JSON.parse( "{{seats.H10}}".charAt(0).toLowerCase()+ "{{seats.H10}}".slice(1));
+                document.getElementById("H11").disabled =!JSON.parse( "{{seats.H11}}".charAt(0).toLowerCase()+ "{{seats.H11}}".slice(1));
+                document.getElementById("H12").disabled =!JSON.parse( "{{seats.H12}}".charAt(0).toLowerCase()+ "{{seats.H12}}".slice(1));
+                document.getElementById("I1").disabled = !JSON.parse("{{seats.I1}}".charAt(0).toLowerCase()+ "{{seats.I1}}".slice(1));
+                document.getElementById("I2").disabled = !JSON.parse("{{seats.I2}}".charAt(0).toLowerCase()+ "{{seats.I2}}".slice(1));
+                document.getElementById("I3").disabled = !JSON.parse("{{seats.I3}}".charAt(0).toLowerCase()+ "{{seats.I3}}".slice(1));
+                document.getElementById("I4").disabled = !JSON.parse("{{seats.I4}}".charAt(0).toLowerCase()+ "{{seats.I4}}".slice(1));
+                document.getElementById("I5").disabled = !JSON.parse("{{seats.I5}}".charAt(0).toLowerCase()+ "{{seats.I5}}".slice(1));
+                document.getElementById("I6").disabled = !JSON.parse("{{seats.I6}}".charAt(0).toLowerCase()+ "{{seats.I6}}".slice(1));
+                document.getElementById("I7").disabled = !JSON.parse("{{seats.I7}}".charAt(0).toLowerCase()+ "{{seats.I7}}".slice(1));
+                document.getElementById("I8").disabled = !JSON.parse("{{seats.I8}}".charAt(0).toLowerCase()+ "{{seats.I8}}".slice(1));
+                document.getElementById("I9").disabled = !JSON.parse("{{seats.I9}}".charAt(0).toLowerCase()+ "{{seats.I9}}".slice(1));
+                document.getElementById("I10").disabled =!JSON.parse( "{{seats.I10}}".charAt(0).toLowerCase()+ "{{seats.I10}}".slice(1));
+                document.getElementById("I11").disabled =!JSON.parse( "{{seats.I11}}".charAt(0).toLowerCase()+ "{{seats.I11}}".slice(1));
+                document.getElementById("I12").disabled =!JSON.parse( "{{seats.I12}}".charAt(0).toLowerCase()+ "{{seats.I12}}".slice(1));
+                document.getElementById("J1").disabled = !JSON.parse("{{seats.J1}}".charAt(0).toLowerCase()+ "{{seats.J1}}".slice(1));
+                document.getElementById("J2").disabled = !JSON.parse("{{seats.J2}}".charAt(0).toLowerCase()+ "{{seats.J2}}".slice(1));
+                document.getElementById("J3").disabled = !JSON.parse("{{seats.J3}}".charAt(0).toLowerCase()+ "{{seats.J3}}".slice(1));
+                document.getElementById("J4").disabled = !JSON.parse("{{seats.J4}}".charAt(0).toLowerCase()+ "{{seats.J4}}".slice(1));
+                document.getElementById("J5").disabled = !JSON.parse("{{seats.J5}}".charAt(0).toLowerCase()+ "{{seats.J5}}".slice(1));
+                document.getElementById("J6").disabled = !JSON.parse("{{seats.J6}}".charAt(0).toLowerCase()+ "{{seats.J6}}".slice(1));
+                document.getElementById("J7").disabled = !JSON.parse("{{seats.J7}}".charAt(0).toLowerCase()+ "{{seats.J7}}".slice(1));
+                document.getElementById("J8").disabled = !JSON.parse("{{seats.J8}}".charAt(0).toLowerCase()+ "{{seats.J8}}".slice(1));
+                document.getElementById("J9").disabled = !JSON.parse("{{seats.J9}}".charAt(0).toLowerCase()+ "{{seats.J9}}".slice(1));
+                document.getElementById("J10").disabled = !JSON.parse("{{seats.J10}}".charAt(0).toLowerCase()+ "{{seats.J10}}".slice(1));
+                document.getElementById("J11").disabled = !JSON.parse("{{seats.J11}}".charAt(0).toLowerCase()+ "{{seats.J11}}".slice(1));
+                document.getElementById("J12").disabled = !JSON.parse("{{seats.J12}}".charAt(0).toLowerCase()+ "{{seats.J12}}".slice(1));
+
+
+
+                document.getElementById("notification").innerHTML =
+                    "<b style='margin-bottom:0px;background:#ff9800;letter-spacing:1px;'>Please Select your Seats NOW!</b>";
+            }
+        }
+
+
+        function updateTextArea() {
+
+            if ($("input:checked").length == ($("#Numseats").val())) {
+                $(".seatStructure *").prop("disabled", true);
+
+                var allNameVals = [];
+                var allNumberVals = [];
+                var allSeatsVals = [];
+
+                //Storing in Array
+                allNameVals.push($("#Username").val());
+                allNumberVals.push($("#Numseats").val());
+                $('#seatsBlock :checked').each(function () {
+                    allSeatsVals.push($(this).val());
+                });
+
+                //Displaying
+                $('#nameDisplay').val(allNameVals);
+                $('#NumberDisplay').val(allNumberVals);
+                $('#seatsDisplay').val(allSeatsVals);
+
+                document.cookie="allNameVals="+allNameVals+";"
+                document.cookie="allNumberVals="+allNumberVals+";"
+                document.cookie="allSeatsVals="+allSeatsVals+";"
+                document.getElementById("pay").style.display= "block";
+
+            } else {
+                alert("Please select " + ($("#Numseats").val()) + " seats")
+            }
+        }
+
+
+
+        function myFunction() {
+            alert($("input:checked").length);
+        }
+
+        /*
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+        */
+
+
+        $(":checkbox").click(function () {
+            if ($("input:checked").length == ($("#Numseats").val())) {
+                $(":checkbox").prop('disabled', true);
+                $(':checked').prop('disabled', false);
+
+            } else {
+                $(":checkbox").prop('disabled', false);
+
+                document.getElementById("A1").disabled = !JSON.parse("{{seats.A1}}".charAt(0).toLowerCase()+ "{{seats.A1}}".slice(1));
+                document.getElementById("A2").disabled = !JSON.parse("{{seats.A2}}".charAt(0).toLowerCase()+ "{{seats.A2}}".slice(1));
+
+                document.getElementById("A3").disabled = !JSON.parse("{{seats.A3}}".charAt(0).toLowerCase()+ "{{seats.A3}}".slice(1));
+                document.getElementById("A4").disabled = !JSON.parse("{{seats.A4}}".charAt(0).toLowerCase()+ "{{seats.A4}}".slice(1));
+                document.getElementById("A6").disabled = !JSON.parse("{{seats.A6}}".charAt(0).toLowerCase()+ "{{seats.A6}}".slice(1));
+                document.getElementById("A7").disabled = !JSON.parse("{{seats.A7}}".charAt(0).toLowerCase()+ "{{seats.A7}}".slice(1));
+                document.getElementById("A8").disabled = !JSON.parse("{{seats.A8}}".charAt(0).toLowerCase()+ "{{seats.A8}}".slice(1));
+                document.getElementById("A9").disabled = !JSON.parse("{{seats.A9}}".charAt(0).toLowerCase()+ "{{seats.A9}}".slice(1));
+                document.getElementById("A10").disabled = !JSON.parse("{{seats.A10}}".charAt(0).toLowerCase()+ "{{seats.A10}}".slice(1));
+                document.getElementById("A11").disabled = !JSON.parse("{{seats.A11}}".charAt(0).toLowerCase()+ "{{seats.A11}}".slice(1));
+                document.getElementById("A12").disabled = !JSON.parse("{{seats.A12}}".charAt(0).toLowerCase()+ "{{seats.A12}}".slice(1));
+                document.getElementById("B1").disabled = !JSON.parse("{{seats.B1}}".charAt(0).toLowerCase()+ "{{seats.B1}}".slice(1));
+                document.getElementById("B2").disabled = !JSON.parse("{{seats.B2}}".charAt(0).toLowerCase()+ "{{seats.B2}}".slice(1));
+                document.getElementById("B3").disabled = !JSON.parse("{{seats.B3}}".charAt(0).toLowerCase()+ "{{seats.B3}}".slice(1));
+                document.getElementById("B4").disabled = !JSON.parse("{{seats.B4}}".charAt(0).toLowerCase()+ "{{seats.B4}}".slice(1));
+                document.getElementById("B5").disabled = !JSON.parse("{{seats.B5}}".charAt(0).toLowerCase()+ "{{seats.B5}}".slice(1));
+                document.getElementById("B6").disabled = !JSON.parse("{{seats.B6}}".charAt(0).toLowerCase()+ "{{seats.B6}}".slice(1));
+                document.getElementById("B7").disabled = !JSON.parse("{{seats.B7}}".charAt(0).toLowerCase()+ "{{seats.B7}}".slice(1));
+                document.getElementById("B8").disabled = !JSON.parse("{{seats.B8}}".charAt(0).toLowerCase()+ "{{seats.B8}}".slice(1));
+                document.getElementById("B9").disabled =!JSON.parse( "{{seats.B9}}".charAt(0).toLowerCase()+ "{{seats.B9}}".slice(1));
+                document.getElementById("B10").disabled = !JSON.parse("{{seats.B10}}".charAt(0).toLowerCase()+ "{{seats.B10}}".slice(1));
+                document.getElementById("B11").disabled = !JSON.parse("{{seats.B11}}".charAt(0).toLowerCase()+ "{{seats.B11}}".slice(1));
+                document.getElementById("B12").disabled = !JSON.parse("{{seats.B12}}".charAt(0).toLowerCase()+ "{{seats.B12}}".slice(1));
+                document.getElementById("C1").disabled = !JSON.parse("{{seats.C1}}".charAt(0).toLowerCase()+ "{{seats.C1}}".slice(1));
+                document.getElementById("C2").disabled = !JSON.parse("{{seats.C2}}".charAt(0).toLowerCase()+ "{{seats.C2}}".slice(1));
+                document.getElementById("C3").disabled = !JSON.parse("{{seats.C3}}".charAt(0).toLowerCase()+ "{{seats.C3}}".slice(1));
+                document.getElementById("C4").disabled = !JSON.parse("{{seats.C4}}".charAt(0).toLowerCase()+ "{{seats.C4}}".slice(1));
+                document.getElementById("C5").disabled = !JSON.parse("{{seats.C5}}".charAt(0).toLowerCase()+ "{{seats.C5}}".slice(1));
+                document.getElementById("C6").disabled = !JSON.parse("{{seats.C6}}".charAt(0).toLowerCase()+ "{{seats.C6}}".slice(1));
+                document.getElementById("C7").disabled = !JSON.parse("{{seats.C7}}".charAt(0).toLowerCase()+ "{{seats.C7}}".slice(1));
+                document.getElementById("C8").disabled = !JSON.parse("{{seats.C8}}".charAt(0).toLowerCase()+ "{{seats.C8}}".slice(1));
+                document.getElementById("C9").disabled = !JSON.parse("{{seats.C9}}".charAt(0).toLowerCase()+ "{{seats.C9}}".slice(1));
+                document.getElementById("C10").disabled = !JSON.parse("{{seats.C10}}".charAt(0).toLowerCase()+ "{{seats.C10}}".slice(1));
+                document.getElementById("C11").disabled = !JSON.parse("{{seats.C11}}".charAt(0).toLowerCase()+ "{{seats.C11}}".slice(1));
+                document.getElementById("C12").disabled = !JSON.parse("{{seats.C12}}".charAt(0).toLowerCase()+ "{{seats.C12}}".slice(1));
+                document.getElementById("D1").disabled = !JSON.parse("{{seats.D1}}".charAt(0).toLowerCase()+ "{{seats.D1}}".slice(1));
+                document.getElementById("D2").disabled = !JSON.parse("{{seats.D2}}".charAt(0).toLowerCase()+ "{{seats.D2}}".slice(1));
+                document.getElementById("D3").disabled = !JSON.parse("{{seats.D3}}".charAt(0).toLowerCase()+ "{{seats.D3}}".slice(1));
+                document.getElementById("D4").disabled = !JSON.parse("{{seats.D4}}".charAt(0).toLowerCase()+ "{{seats.D4}}".slice(1));
+                document.getElementById("D5").disabled = !JSON.parse("{{seats.D5}}".charAt(0).toLowerCase()+ "{{seats.D5}}".slice(1));
+                document.getElementById("D6").disabled = !JSON.parse("{{seats.D6}}".charAt(0).toLowerCase()+ "{{seats.D6}}".slice(1));
+                document.getElementById("D7").disabled = !JSON.parse("{{seats.D7}}".charAt(0).toLowerCase()+ "{{seats.D7}}".slice(1));
+                document.getElementById("D8").disabled = !JSON.parse("{{seats.D8}}".charAt(0).toLowerCase()+ "{{seats.D8}}".slice(1));
+                document.getElementById("D9").disabled = !JSON.parse("{{seats.D9}}".charAt(0).toLowerCase()+ "{{seats.D9}}".slice(1));
+                document.getElementById("D10").disabled = !JSON.parse("{{seats.D10}}".charAt(0).toLowerCase()+ "{{seats.D10}}".slice(1));
+                document.getElementById("D11").disabled = !JSON.parse("{{seats.D11}}".charAt(0).toLowerCase()+ "{{seats.D11}}".slice(1));
+                document.getElementById("D12").disabled = !JSON.parse("{{seats.D12}}".charAt(0).toLowerCase()+ "{{seats.D12}}".slice(1));
+                document.getElementById("E1").disabled = !JSON.parse("{{seats.E1}}".charAt(0).toLowerCase()+ "{{seats.E1}}".slice(1));
+                document.getElementById("E2").disabled = !JSON.parse("{{seats.E2}}".charAt(0).toLowerCase()+ "{{seats.E2}}".slice(1));
+                document.getElementById("E3").disabled = !JSON.parse("{{seats.E3}}".charAt(0).toLowerCase()+ "{{seats.E3}}".slice(1));
+                document.getElementById("E4").disabled = !JSON.parse("{{seats.E4}}".charAt(0).toLowerCase()+ "{{seats.E4}}".slice(1));
+                document.getElementById("E5").disabled = !JSON.parse("{{seats.E5}}".charAt(0).toLowerCase()+ "{{seats.E5}}".slice(1));
+                document.getElementById("E6").disabled = !JSON.parse("{{seats.E6}}".charAt(0).toLowerCase()+ "{{seats.E6}}".slice(1));
+                document.getElementById("E7").disabled = !JSON.parse("{{seats.E7}}".charAt(0).toLowerCase()+ "{{seats.E7}}".slice(1));
+                document.getElementById("E8").disabled = !JSON.parse("{{seats.E8}}".charAt(0).toLowerCase()+ "{{seats.E8}}".slice(1));
+                document.getElementById("E9").disabled = !JSON.parse("{{seats.E9}}".charAt(0).toLowerCase()+ "{{seats.E9}}".slice(1));
+                document.getElementById("E10").disabled = !JSON.parse("{{seats.E10}}".charAt(0).toLowerCase()+ "{{seats.E10}}".slice(1));
+                document.getElementById("E11").disabled = !JSON.parse("{{seats.E11}}".charAt(0).toLowerCase()+ "{{seats.E11}}".slice(1));
+                document.getElementById("E12").disabled = !JSON.parse("{{seats.E12}}".charAt(0).toLowerCase()+ "{{seats.E12}}".slice(1));
+                document.getElementById("F1").disabled = !JSON.parse("{{seats.F1}}".charAt(0).toLowerCase()+ "{{seats.F1}}".slice(1));
+                document.getElementById("F2").disabled = !JSON.parse("{{seats.F2}}".charAt(0).toLowerCase()+ "{{seats.F2}}".slice(1));
+                document.getElementById("F3").disabled = !JSON.parse("{{seats.F3}}".charAt(0).toLowerCase()+ "{{seats.F3}}".slice(1));
+                document.getElementById("F4").disabled = !JSON.parse("{{seats.F4}}".charAt(0).toLowerCase()+ "{{seats.F4}}".slice(1));
+                document.getElementById("F5").disabled = !JSON.parse("{{seats.F5}}".charAt(0).toLowerCase()+ "{{seats.F5}}".slice(1));
+                document.getElementById("F6").disabled = !JSON.parse("{{seats.F6}}".charAt(0).toLowerCase()+ "{{seats.F6}}".slice(1));
+                document.getElementById("F7").disabled = !JSON.parse("{{seats.F7}}".charAt(0).toLowerCase()+ "{{seats.F7}}".slice(1));
+                document.getElementById("F8").disabled = !JSON.parse("{{seats.F8}}".charAt(0).toLowerCase()+ "{{seats.F8}}".slice(1));
+                document.getElementById("F9").disabled = !JSON.parse("{{seats.F9}}".charAt(0).toLowerCase()+ "{{seats.F9}}".slice(1));
+                document.getElementById("F10").disabled = !JSON.parse("{{seats.F10}}".charAt(0).toLowerCase()+ "{{seats.F10}}".slice(1));
+                document.getElementById("F11").disabled = !JSON.parse("{{seats.F11}}".charAt(0).toLowerCase()+ "{{seats.F11}}".slice(1));
+                document.getElementById("F12").disabled = !JSON.parse("{{seats.F12}}".charAt(0).toLowerCase()+ "{{seats.F12}}".slice(1));
+                document.getElementById("G1").disabled = !JSON.parse("{{seats.G1}}".charAt(0).toLowerCase()+ "{{seats.G1}}".slice(1));
+                document.getElementById("G2").disabled = !JSON.parse("{{seats.G2}}".charAt(0).toLowerCase()+ "{{seats.G2}}".slice(1));
+                document.getElementById("G3").disabled = !JSON.parse("{{seats.G3}}".charAt(0).toLowerCase()+ "{{seats.G3}}".slice(1));
+                document.getElementById("G4").disabled = !JSON.parse("{{seats.G4}}".charAt(0).toLowerCase()+ "{{seats.G4}}".slice(1));
+                document.getElementById("G5").disabled =!JSON.parse("{{seats.G5}}".charAt(0).toLowerCase()+ "{{seats.G5}}".slice(1));
+                document.getElementById("G6").disabled = !JSON.parse("{{seats.G6}}".charAt(0).toLowerCase()+ "{{seats.G6}}".slice(1));
+                document.getElementById("G7").disabled = !JSON.parse("{{seats.G7}}".charAt(0).toLowerCase()+ "{{seats.G7}}".slice(1));
+                document.getElementById("G8").disabled = !JSON.parse("{{seats.G8}}".charAt(0).toLowerCase()+ "{{seats.G8}}".slice(1));
+                document.getElementById("G9").disabled = !JSON.parse("{{seats.G9}}".charAt(0).toLowerCase()+ "{{seats.G9}}".slice(1));
+                document.getElementById("G10").disabled = !JSON.parse("{{seats.G10}}".charAt(0).toLowerCase()+ "{{seats.G10}}".slice(1));
+                document.getElementById("G11").disabled = !JSON.parse("{{seats.G11}}".charAt(0).toLowerCase()+ "{{seats.G11}}".slice(1));
+                document.getElementById("G12").disabled = !JSON.parse("{{seats.G12}}".charAt(0).toLowerCase()+ "{{seats.G12}}".slice(1));
+                document.getElementById("H1").disabled = !JSON.parse("{{seats.H1}}".charAt(0).toLowerCase()+ "{{seats.H1}}".slice(1));
+                document.getElementById("H2").disabled = !JSON.parse("{{seats.H2}}".charAt(0).toLowerCase()+ "{{seats.H2}}".slice(1));
+                document.getElementById("H3").disabled = !JSON.parse("{{seats.H3}}".charAt(0).toLowerCase()+ "{{seats.H3}}".slice(1));
+                document.getElementById("H4").disabled = !JSON.parse("{{seats.H4}}".charAt(0).toLowerCase()+ "{{seats.H4}}".slice(1));
+                document.getElementById("H5").disabled = !JSON.parse("{{seats.H5}}".charAt(0).toLowerCase()+ "{{seats.H5}}".slice(1));
+                document.getElementById("H6").disabled = !JSON.parse("{{seats.H6}}".charAt(0).toLowerCase()+ "{{seats.H6}}".slice(1));
+                document.getElementById("H7").disabled = !JSON.parse("{{seats.H7}}".charAt(0).toLowerCase()+ "{{seats.H7}}".slice(1));
+                document.getElementById("H8").disabled = !JSON.parse("{{seats.H8}}".charAt(0).toLowerCase()+ "{{seats.H8}}".slice(1));
+                document.getElementById("H9").disabled = !JSON.parse("{{seats.H9}}".charAt(0).toLowerCase()+ "{{seats.H9}}".slice(1));
+                document.getElementById("H10").disabled =!JSON.parse( "{{seats.H10}}".charAt(0).toLowerCase()+ "{{seats.H10}}".slice(1));
+                document.getElementById("H11").disabled =!JSON.parse( "{{seats.H11}}".charAt(0).toLowerCase()+ "{{seats.H11}}".slice(1));
+                document.getElementById("H12").disabled =!JSON.parse( "{{seats.H12}}".charAt(0).toLowerCase()+ "{{seats.H12}}".slice(1));
+                document.getElementById("I1").disabled = !JSON.parse("{{seats.I1}}".charAt(0).toLowerCase()+ "{{seats.I1}}".slice(1));
+                document.getElementById("I2").disabled = !JSON.parse("{{seats.I2}}".charAt(0).toLowerCase()+ "{{seats.I2}}".slice(1));
+                document.getElementById("I3").disabled = !JSON.parse("{{seats.I3}}".charAt(0).toLowerCase()+ "{{seats.I3}}".slice(1));
+                document.getElementById("I4").disabled = !JSON.parse("{{seats.I4}}".charAt(0).toLowerCase()+ "{{seats.I4}}".slice(1));
+                document.getElementById("I5").disabled = !JSON.parse("{{seats.I5}}".charAt(0).toLowerCase()+ "{{seats.I5}}".slice(1));
+                document.getElementById("I6").disabled = !JSON.parse("{{seats.I6}}".charAt(0).toLowerCase()+ "{{seats.I6}}".slice(1));
+                document.getElementById("I7").disabled = !JSON.parse("{{seats.I7}}".charAt(0).toLowerCase()+ "{{seats.I7}}".slice(1));
+                document.getElementById("I8").disabled = !JSON.parse("{{seats.I8}}".charAt(0).toLowerCase()+ "{{seats.I8}}".slice(1));
+                document.getElementById("I9").disabled = !JSON.parse("{{seats.I9}}".charAt(0).toLowerCase()+ "{{seats.I9}}".slice(1));
+                document.getElementById("I10").disabled =!JSON.parse( "{{seats.I10}}".charAt(0).toLowerCase()+ "{{seats.I10}}".slice(1));
+                document.getElementById("I11").disabled =!JSON.parse( "{{seats.I11}}".charAt(0).toLowerCase()+ "{{seats.I11}}".slice(1));
+                document.getElementById("I12").disabled =!JSON.parse( "{{seats.I12}}".charAt(0).toLowerCase()+ "{{seats.I12}}".slice(1));
+                document.getElementById("J1").disabled = !JSON.parse("{{seats.J1}}".charAt(0).toLowerCase()+ "{{seats.J1}}".slice(1));
+                document.getElementById("J2").disabled = !JSON.parse("{{seats.J2}}".charAt(0).toLowerCase()+ "{{seats.J2}}".slice(1));
+                document.getElementById("J3").disabled = !JSON.parse("{{seats.J3}}".charAt(0).toLowerCase()+ "{{seats.J3}}".slice(1));
+                document.getElementById("J4").disabled = !JSON.parse("{{seats.J4}}".charAt(0).toLowerCase()+ "{{seats.J4}}".slice(1));
+                document.getElementById("J5").disabled = !JSON.parse("{{seats.J5}}".charAt(0).toLowerCase()+ "{{seats.J5}}".slice(1));
+                document.getElementById("J6").disabled = !JSON.parse("{{seats.J6}}".charAt(0).toLowerCase()+ "{{seats.J6}}".slice(1));
+                document.getElementById("J7").disabled = !JSON.parse("{{seats.J7}}".charAt(0).toLowerCase()+ "{{seats.J7}}".slice(1));
+                document.getElementById("J8").disabled = !JSON.parse("{{seats.J8}}".charAt(0).toLowerCase()+ "{{seats.J8}}".slice(1));
+                document.getElementById("J9").disabled = !JSON.parse("{{seats.J9}}".charAt(0).toLowerCase()+ "{{seats.J9}}".slice(1));
+                document.getElementById("J10").disabled = !JSON.parse("{{seats.J10}}".charAt(0).toLowerCase()+ "{{seats.J10}}".slice(1));
+                document.getElementById("J11").disabled = !JSON.parse("{{seats.J11}}".charAt(0).toLowerCase()+ "{{seats.J11}}".slice(1));
+                document.getElementById("J12").disabled = !JSON.parse("{{seats.J12}}".charAt(0).toLowerCase()+ "{{seats.J12}}".slice(1));
+
+
+
+
+
+
+
+                //document.getElementById("A1").disabled = true;
+
+            }
+        });
+    </script>
+    <!-- //script for seat selection -->
+
+</body>
+
+</html>

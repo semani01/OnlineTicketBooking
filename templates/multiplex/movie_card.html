@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      max-width: 300px;
+      margin: auto;
+      text-align: center;
+      font-family: arial;
+    }
+
+    .title {
+      color: grey;
+      font-size: 18px;
+    }
+
+    button {
+      border: none;
+      outline: 0;
+      display: inline-block;
+      padding: 8px;
+      color: white;
+      background-color: #000;
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+    }
+
+    button:hover,
+    a:hover {
+      opacity: 0.7;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: auto auto auto;
+
+
+    }
+
+    a:link {
+      text-decoration: none;
+    }
+
+
+  </style>
+</head>
+
+<body>
+
+
+
+  <div class="grid-container">
+
+    <table>
+      <tr>
+          {% for movie in movies %}
+        <td>
+          <div class="grid-item">
+          <div class="card">
+            <img src="{% static movie.poster.url %}" alt="John" style="width:100%;height:300px;">
+            <p class="title">{{movie.name}}</p>
+            <table style="width:100%">
+              <tr>
+                <td valign="middle" align="center"> <p style="color:blue;">{{movie.description}}</p> </td>
+              </tr>
+            </table>
+            <p><button style="background-color:red;"><a style="color:white;" href="{% url 'view-movie-details' movie.id  %}">Viw Details</a></button></p>
+            <p ><button style="background-color:blue;"><a style="color:white;" href="{% url 'book-now' movie.id  %}">Book Now</a></button></p>
+          </div>
+          </div>
+        </td>
+        {% if forloop.counter|divisibleby:"4" %}
+        </tr>
+        <tr>
+          <br><br><br>
+      {% endif %}
+  {% endfor %}
+</tr>
+
+
+
+
+    </table>
+
+
+
+
+
+  </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+{% extends 'multiplex/theatrebase.html' %}
+{% block content %}
+{% load static %}
+	<!-- main content -->
+	<div class="wrapper">
+
+<!-- ****** table  start ********** -->
+		<div class="row">
+			<div class="col-12 col-m-12 col-sm-12">
+				<div class="card">
+					<div class="card-header">
+						<h3 style="color:red; text-align:center" >Release Movie That You Bought From Distributor
+						</h3>
+
+					</div>
+					<div class="card-content">
+						<table>
+							<thead>
+                <tr>
+                  <th>Movie Name</th>
+                  <th>Poster</th>
+                  <th>Description</th>
+                  <th>Actor</th>
+                  <th>Producer Name</th>
+                  <th>Distributor Name</th>
+                  <th>Release Movie</th>
+                </tr>
+							</thead>
+							<tbody>
+              {% for movie in movies %}
+                <tr>
+                  <td> {{movie}}</td>
+                  <td> <img src="{% static movie.poster.url %}" alt="poster Pic" height="40px" width="40px" /></td>
+                  <td> {{movie.description}}</td>
+                  <td> {{movie.actor}}</td>
+                  <td>{{movie.producer}}</td>
+                  <td>{{movie.distributor}}</td>      
+                  <td><a style="color:blue; text-decoration:none;font-size:25px;"href="{% url 'theatre-release-movies' movie.id  %}"><i class="fas fa-check"></i></a></td>
+
+
+                </tr>
+                {% endfor %}
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+<!-- ****** table start ********** -->
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	</div>
+	<!-- end main content -->
+{% endblock content %}

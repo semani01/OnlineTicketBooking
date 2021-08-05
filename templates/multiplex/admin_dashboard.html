@@ -1,0 +1,55 @@
+{% extends 'multiplex/adminbase.html' %}
+{% load static %}
+{% block content %}
+
+	<!-- main content -->
+	<div class="wrapper">
+
+<!-- ****** cards start ********** -->
+		<div class="row">
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter bg-primary">
+					<p>
+						<i class="fas fa-users"></i>
+					</p>
+					<h3>{{total_customer}}</h3>
+					<p>Total Customer</p>
+				</div>
+			</div>
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter bg-warning">
+					<p>
+						<i class="fas fa-hat-cowboy"></i>
+					</p>
+					<h3>{{total_producer}}</h3>
+					<p>Total Producer</p>
+				</div>
+			</div>
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter bg-success">
+					<p>
+						<i class="fas fa-user-tie"></i>
+					</p>
+					<h3>{{total_distributor}}</h3>
+					<p>Total Distributor</p>
+				</div>
+			</div>
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter bg-danger">
+					<p>
+						<i class="fas fa-video"></i>
+					</p>
+					<h3>{{total_theatre}}</h3>
+					<p>Total Theatre</p>
+				</div>
+			</div>
+		</div>
+<!-- ****** cards end ********** -->
+
+
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+	</div>
+	<!-- end main content -->
+{% endblock content %}
