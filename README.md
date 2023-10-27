@@ -1,25 +1,13 @@
 # MOVIE TICKET BOOKING
-![developer](https://img.shields.io/badge/Developed%20By%20%3A-Sumit%20Kumar-red)
----
-## SCREENSHOTS
-### Home Page
-![home snap](https://github.com/sumitkumar1503/movieticketbooking/blob/master/static/screenshot/home.png?raw=true)
-### Download Ticket
-![ticket snap](https://github.com/sumitkumar1503/movieticketbooking/blob/master/static/screenshot/ticket.png?raw=true)
-### Admin View Movie
-![admin snap](https://github.com/sumitkumar1503/movieticketbooking/blob/master/static/screenshot/admin.png?raw=true)
-### Seat Choose
-![seat snap](https://github.com/sumitkumar1503/movieticketbooking/blob/master/static/screenshot/seat_choose.png?raw=true)
-### Theatre Collection
-![theatre snap](https://github.com/sumitkumar1503/movieticketbooking/blob/master/static/screenshot/theatre.png?raw=true)
+![developer](https://img.shields.io/badge/Developed%20By%20%3A-Sai%20Emani-red)
 ---
 ## FUNCTIONS
 ### BASIC FLOW
-- Customer will login to system, book ticket, Download ticket...
+A user can log in, buy tickets for movies and download them. 
 - Producer will add their film, then he/she will request DISTRIBUTOR to buy their film, If DISTRIBUTOR agree with producer film price, then DISTRIBUTOR will accept request from PRODUCER.
 - Now Distributor will further sell those film (bought from producer) to THEATRE OWNER with their own price, It will send request to THEATRE OWNER, IF theatre owner agree with DISTRIBUTOR price then theatre will buy those film and release to theatre.
 - Customer can book only those movie that is released by THEATRE or added by ADMIN, not by PRODUCER or DISTRIBUTOR
-- There is 5 roles
+- There are 5 roles
 
 ---
 
@@ -143,7 +131,6 @@ EMAIL_RECEIVING_USER = 'youremail@gmail.com'
 https://myaccount.google.com/lesssecureapps
 ```
 
-## Disclaimer
 This project is developed for demo purpose and it's not supposed to be used in real application.
 
 ## Feedback
